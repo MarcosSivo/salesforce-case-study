@@ -1,17 +1,37 @@
 {
   "trailingComma": "none",
-  "plugins": [
-    "prettier-plugin-apex",
-    "@prettier/plugin-xml"
-  ],
+  "endOfLine": "auto",
+  "plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],
   "overrides": [
     {
+      "files": "*.{cls,trigger}",
+      "options": {
+        "printWidth": 120,
+        "tabWidth": 4
+      }
+    },
+    {
       "files": "**/lwc/**/*.html",
-      "options": { "parser": "lwc" }
+      "options": {
+        "parser": "lwc",
+        "printWidth": 120,
+        "tabWidth": 4
+      }
     },
     {
       "files": "*.{cmp,page,component}",
-      "options": { "parser": "html" }
+      "options": {
+        "parser": "html",
+        "printWidth": 120,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "printWidth": 120,
+        "tabWidth": 4
+      }
     }
   ]
 }
