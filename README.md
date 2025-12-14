@@ -1,18 +1,95 @@
-# Salesforce DX Project: Next Steps
+# Salesforce Application Case Study
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This project contains:
 
-## How Do You Plan to Deploy Your Changes?
+- An Experience Cloud (community) site with a partner-facing application form LWC (`applicationForm`)
+- Apex services/controllers to process applications into either a `Lead` or `Opportunity`
+- A public Apex REST endpoint for external submissions
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Prerequisites
 
-## Configure Your Salesforce DX Project
+- Node.js + npm (for linting/formatting and LWC Jest tests)
+- Salesforce CLI (`sf`)
+- A target org where you can deploy metadata
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## Pre-Deployment steps
 
-## Read All About It
+### 1. Enable Digital Experiences
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+If Digital Experiences is not enabled in your org:
+
+1. Setup → search for **Digital Experiences** → **Settings**
+2. Check **Enable Digital Experiences**
+3. Click **Save**
+
+Reference: https://help.salesforce.com/s/articleView?id=experience.networks_enable.htm&type=5
+
+### 2. Enable ExperienceBundle Metadata API
+
+1. Setup → search for **Digital Experiences** → **Settings**
+2. Check **Enable ExperienceBundle Metadata API**
+3. Click **Save**
+
+### 3. Create the placeholder site
+
+1. Setup → search for **All Sites**
+2. Click **New**
+3. Select **Build Your Own (Aura)**
+4. Click **Get Started**
+5. Name: **Partner Applications**
+6. Click **Create**
+
+## Deploy
+
+Deploy the components:
+
+**NOTE:** replace <YOUR_DEFAULT_ORG> with the org alieas you want to deploy.
+
+```sh
+sf project deploy start --source-dir force-app --target-org <YOUR_DEFAULT_ALIAS>
+```
+
+## Post-deployment
+
+### Publish the site
+
+1. Setup → search for **All Sites**
+2. Click **Builder** for **Partner Applications**
+3. Click **Publish**
+
+### Activate the site
+
+1. Setup → search for **All Sites**
+2. Click **Workspaces** for **Partner Applications**
+3. **Administration** → **Activate**
+
+## How does the webhook works?
+
+To execute the webhook, please follow these instructions:
+
+Open Postman (or any other tool) and set:
+
+1. Method: **POST**
+2. URL: `https://<your-community-domain>/services/apexrest/external/applications`
+3. Headers:
+   - `Content-Type: application/json`
+   - `Accept: application/json`
+4. Body (raw JSON):
+
+```json
+{
+  "companyName": "Acme Corp",
+  "federalTaxId": "123456789",
+  "contact": {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "email": "ivan@example.com",
+    "phone": "+359888123456"
+  },
+  "annualRevenue": 500000
+}
+```
+
+## Assumptions
+
+- On the application form, all inputs are required except `annualRevenue`.
