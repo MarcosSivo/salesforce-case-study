@@ -8,32 +8,94 @@
                 contact you shortly.
             </p>
         </lightning-layout-item>
-        <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="text" label="Company Name" max-length="100" required></lightning-input>
+        <lightning-layout-item size="12" padding="around-small">
+            <p lwc:if={isSuccess} class="slds-text-color_success">{successMessage}</p>
+            <p lwc:if={areErrors} class="slds-notify slds-notify_alert slds-alert_error" role="alert">{errorMessage}</p>
+            <p lwc:if={areWarnings} class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                {warningMessage}
+            </p>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="text" label="Federal Tax ID" max-length="100" required></lightning-input>
+            <lightning-input
+                data-id="companyName"
+                type="text"
+                label="Company Name"
+                max-length="100"
+                value={companyName}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="text" label="Contact First Name" max-length="100" required></lightning-input>
+            <lightning-input
+                data-id="federalTaxId"
+                type="text"
+                label="Federal Tax ID"
+                max-length="100"
+                value={federalTaxId}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="text" label="Contact Last Name" max-length="100" required></lightning-input>
+            <lightning-input
+                data-id="contactFirstName"
+                type="text"
+                label="Contact First Name"
+                max-length="100"
+                value={contactFirstName}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="email" label="Email" max-length="100" required></lightning-input>
+            <lightning-input
+                data-id="contactLastName"
+                type="text"
+                label="Contact Last Name"
+                max-length="100"
+                value={contactLastName}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="tel" label="Phone" max-length="100" required></lightning-input>
+            <lightning-input
+                data-id="email"
+                type="email"
+                label="Email"
+                max-length="100"
+                value={email}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
-            <lightning-input type="text" label="Anual Revenue"></lightning-input>
+            <lightning-input
+                data-id="phone"
+                type="tel"
+                label="Phone"
+                max-length="100"
+                value={phone}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" medium-device-size="6" large-device-size="6" padding="around-small">
+            <lightning-input
+                data-id="annualRevenue"
+                type="number"
+                label="Annual Revenue"
+                value={annualRevenue}
+                onchange={handleInputChange}
+            ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="12" padding="around-small">
             <lightning-button
                 variant="brand"
                 label="Submit"
                 title="Submit"
+                disabled={isLoading}
                 onclick={handleSubmitForm}
             ></lightning-button>
         </lightning-layout-item>
