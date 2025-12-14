@@ -5,7 +5,7 @@
   "devName" : "application_form__c",
   "id" : "c9a0cdb5-a596-45f9-810a-d922bf0e5c92",
   "label" : "Application Form",
-  "pageAccess" : "UseParent",
+  "pageAccess" : "Public",
   "routeType" : "custom-application-form",
   "type" : "route",
   "urlPrefix" : "application-form"

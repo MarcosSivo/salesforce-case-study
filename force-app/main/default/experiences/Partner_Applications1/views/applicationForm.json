@@ -25,6 +25,14 @@
       "componentName" : "forceCommunity:section",
       "id" : "325fc6b9-1045-45b6-b1d8-39846d889dbb",
       "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:applicationForm",
+          "id" : "ad616d90-ed05-457a-b357-0c353bbc1286",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
         "id" : "51a2d240-891e-4b52-b1e2-3e14b52aaed0",
         "regionLabel" : "Column 1",
         "regionName" : "1",
