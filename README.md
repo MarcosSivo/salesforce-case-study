@@ -93,3 +93,12 @@ Open Postman (or any other tool) and set:
 ## Assumptions
 
 - On the application form, all inputs are required except `annualRevenue`.
+
+## How to access the form?
+
+In order to access the Application form, you can just open refer to the following link:
+`https://<your-community-domain>/s/application-form`
+
+Here is an example:
+
+https://mindful-hawk-k9alf-dev-ed.trailblaze.my.site.com/s/application-form
