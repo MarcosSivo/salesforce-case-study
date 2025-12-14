@@ -1,10 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>ApplicationDTO</members>
+		<members>ApplicationFormController</members>
+		<members>ApplicationProcessingService</members>
+		<members>ApplicationWebhook</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
 		<members>Account.Federal_Tax_Id__c</members>
+		<members>Account.Name</members>
+		<members>Account.Website</members>
 		<members>Lead.Application_Source__c</members>
+		<members>Lead.Company</members>
+		<members>Lead.Email</members>
 		<members>Lead.Federal_Tax_Id__c</members>
+		<members>Lead.FirstName</members>
+		<members>Lead.LastName</members>
+		<members>Lead.Phone</members>
+		<members>Opportunity.AccountId</members>
 		<members>Opportunity.Application_Source__c</members>
+		<members>Opportunity.CloseDate</members>
+		<members>Opportunity.Name</members>
+		<members>Opportunity.StageName</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -12,8 +30,32 @@
 		<name>CustomSite</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>ExperienceBundle</name>
+	</types>
+	<types>
+		<members>applicationForm</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Network</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>NetworkBranding</name>
+	</types>
+	<types>
+		<members>Partner Applications Profile</members>
+		<name>Profile</name>
+	</types>
+	<types>
 		<members>Communities</members>
 		<name>Settings</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>SiteDotCom</name>
 	</types>
 	<version>65.0</version>
 </Package>
