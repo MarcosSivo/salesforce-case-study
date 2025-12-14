@@ -51,6 +51,10 @@ public without sharing class ApplicationProcessingService {
      * @return Matching Account if found; otherwise null.
      */
     private static Account getMatchingAccount(ApplicationDTO app) {
+        if (String.isBlank(app.federalTaxId) && String.isBlank(app.companyName)) {
+            return null;
+        }
+
         List<Account> accounts = [
             SELECT Id, Federal_Tax_Id__c
             FROM Account

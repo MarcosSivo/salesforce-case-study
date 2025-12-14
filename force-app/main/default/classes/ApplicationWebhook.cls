@@ -12,7 +12,7 @@ global without sharing class ApplicationWebhook {
         ApplicationResult response = new ApplicationResult();
 
         RestRequest req = RestContext.request;
-        RestResponse res = Restcontext.response;
+        RestResponse res = RestContext.response;
 
         try {
             String body = req != null && req.requestBody != null ? req.requestBody.toString() : null;
@@ -31,7 +31,7 @@ global without sharing class ApplicationWebhook {
                 res.statusCode = 200;
                 response.success = true;
                 response.recordType = result.recordType;
-                response.recordId = (String) result.recordId;
+                response.recordId = result.recordId;
                 response.message = 'Application processed successfully';
                 return response;
             }
