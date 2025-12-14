@@ -3,31 +3,22 @@
 	<types>
 		<members>ApplicationDTO</members>
 		<members>ApplicationFormController</members>
+		<members>ApplicationFormControllerTest</members>
 		<members>ApplicationProcessingService</members>
+		<members>ApplicationProcessingServiceTest</members>
+		<members>ApplicationResult</members>
+		<members>ApplicationResultDTO</members>
 		<members>ApplicationWebhook</members>
+		<members>ApplicationWebhookTest</members>
+		<members>ContactDTO</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
 		<members>Account.Federal_Tax_Id__c</members>
-		<members>Account.Name</members>
-		<members>Account.Website</members>
 		<members>Lead.Application_Source__c</members>
-		<members>Lead.Company</members>
-		<members>Lead.Email</members>
 		<members>Lead.Federal_Tax_Id__c</members>
-		<members>Lead.FirstName</members>
-		<members>Lead.LastName</members>
-		<members>Lead.Phone</members>
-		<members>Opportunity.AccountId</members>
 		<members>Opportunity.Application_Source__c</members>
-		<members>Opportunity.CloseDate</members>
-		<members>Opportunity.Name</members>
-		<members>Opportunity.StageName</members>
 		<name>CustomField</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>CustomSite</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -36,10 +27,6 @@
 	<types>
 		<members>applicationForm</members>
 		<name>LightningComponentBundle</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Network</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -52,10 +39,6 @@
 	<types>
 		<members>Communities</members>
 		<name>Settings</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>SiteDotCom</name>
 	</types>
 	<version>65.0</version>
 </Package>
